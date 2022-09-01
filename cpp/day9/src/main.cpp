@@ -55,7 +55,6 @@ int main() {
         }
     }
     std::sort(basines.rbegin(), basines.rend());
-    int ans = std::accumulate(basines.begin(), basines.begin() + 3, 1,
-                              std::multiplies<>());
+    int ans = std::accumulate(basines.begin(), basines.begin() + 3, 1, std::multiplies<>());
     fmt::print("Answere: {}\n", ans);
 }

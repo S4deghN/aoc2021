@@ -61,13 +61,9 @@ int main() {
         // find 3, 3 is a len5 word that includes 1.
         auto it = std::find_if(
             line.begin(), line.begin() + 10, [&](const std::string& s) {
-                if (s.length() == 5 &&
+                return s.length() == 5 &&
                     std::includes(s.begin(), s.end(), revKey[1].begin(),
-                                  revKey[1].end())) {
-                    return true;
-                } else {
-                    return false;
-                }
+                                  revKey[1].end());
             });
         key[*it] = 3;
         revKey[3] = *it;
@@ -75,13 +71,9 @@ int main() {
         // find 9, 9 is a len6 word that includes 4.
         it = std::find_if(
             line.begin(), line.begin() + 10, [&](const std::string& s) {
-                if (s.length() == 6 &&
+                return s.length() == 6 &&
                     std::includes(s.begin(), s.end(), revKey[4].begin(),
-                                  revKey[4].end())) {
-                    return true;
-                } else {
-                    return false;
-                }
+                                  revKey[4].end());
             });
         key[*it] = 9;
         revKey[9] = *it;
@@ -89,13 +81,9 @@ int main() {
         // find 0, 0 is a len6 that includes 1 and is not 9.
         it = std::find_if(
             line.begin(), line.begin() + 10, [&](const std::string& s) {
-                if (s.length() == 6 && s != revKey[9] &&
+                return s.length() == 6 && s != revKey[9] &&
                     std::includes(s.begin(), s.end(), revKey[1].begin(),
-                                  revKey[1].end())) {
-                    return true;
-                } else {
-                    return false;
-                }
+                                  revKey[1].end());
             });
         key[*it] = 0;
         revKey[0] = *it;
@@ -103,11 +91,7 @@ int main() {
         // find 6, 6 is a len6 that is not 9 or 0.
         it = std::find_if(
             line.begin(), line.begin() + 10, [&](const std::string& s) {
-                if (s.length() == 6 && s != revKey[9] && s != revKey[0]) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return s.length() == 6 && s != revKey[9] && s != revKey[0];
             });
         key[*it] = 6;
         revKey[6] = *it;
@@ -115,13 +99,9 @@ int main() {
         // find 5, 5 is a len5 that 9 includes it and it's not a 3.
         it = std::find_if(
             line.begin(), line.begin() + 10, [&](const std::string& s) {
-                if (s.length() == 5 && s != revKey[3] &&
+                return s.length() == 5 && s != revKey[3] &&
                     std::includes(revKey[9].begin(), revKey[9].end(), s.begin(),
-                                  s.end())) {
-                    return true;
-                } else {
-                    return false;
-                }
+                                  s.end());
             });
         key[*it] = 5;
         revKey[5] = *it;
@@ -129,11 +109,7 @@ int main() {
         // find 2, 2 is a len5 that is not 5 or 3.
         it = std::find_if(
             line.begin(), line.begin() + 10, [&](const std::string& s) {
-                if (s.length() == 5 && s != revKey[3] && s != revKey[5]) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return s.length() == 5 && s != revKey[3] && s != revKey[5];
             });
         key[*it] = 2;
         revKey[2] = *it;

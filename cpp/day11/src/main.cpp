@@ -33,7 +33,7 @@ bool is_flashable(const Vec<Vec<Octopus>>& table, int h, int w) {
     return is_inbound(table, h, w) && !table[h][w].flashed;
 }
 
-int gain_energy(Vec<Vec<Octopus>>& table, int h, int w) {
+uint64_t gain_energy(Vec<Vec<Octopus>>& table, int h, int w) {
     if (is_flashable(table, h, w) && ++table[h][w].energy > 9) {
         table[h][w].energy = 0;
         table[h][w].flashed = true;
@@ -87,7 +87,7 @@ int main() {
         }
     }
 
-    for (auto row : table) {
+    for (const auto& row : table) {
         for (auto oct : row) {
             fmt::print("{}", oct.energy);
         }

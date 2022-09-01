@@ -52,6 +52,7 @@ int main() {
         if (std::isdigit(item[0])) {
             char* idx;
             int x = std::strtol(item.c_str(), &idx, 10);
+
             int y = std::strtol(idx + 1, NULL, 10);
             pairs.emplace_back(Pair{x, y});
 

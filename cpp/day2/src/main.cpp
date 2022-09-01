@@ -18,7 +18,9 @@ int main() {
 
         std::string dir;
         int val;
-        int hor = 0, ver = 0, aim = 0;
+        int hor = 0;
+        int ver = 0;
+        int aim = 0;
         while (s >> dir >> val) {
             if (dir == "forward") {
                 hor += val;
